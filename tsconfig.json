@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "incremental": true,                              /* Enable incremental compilation for faster rebuilds. */
+    "tsBuildInfoFile": "./.tsbuildinfo",              /* Specify path to the incremental build info file. */
+
+    /* Language and Environment */
+    "target": "ES2021",                               /* Set the JavaScript language version for emitted code. */
+    "module": "CommonJS",                             /* Use CommonJS modules for compatibility with Node.js. */
+    "esModuleInterop": true,                          /* Add compatibility for CommonJS modules. */
+    "forceConsistentCasingInFileNames": true,         /* Enforce consistent casing in module imports. */
+
+    /* Type Checking */
+    "strict": true,                                   /* Enable all strict type-checking options. */
+    "noImplicitAny": true,                            /* Raise an error for expressions and declarations with an implied 'any' type. */
+    "strictNullChecks": true,                         /* Ensure 'null' and 'undefined' are handled in type checks. */
+    "strictFunctionTypes": true,                      /* Ensure function parameters and return types are subtype-compatible. */
+    "strictBindCallApply": true,                      /* Ensure `bind`, `call`, and `apply` methods are checked. */
+    "strictPropertyInitialization": true,             /* Check for uninitialized properties in classes. */
+    "noImplicitThis": true,                           /* Ensure `this` has a valid type. */
+    "useUnknownInCatchVariables": true,               /* Default catch variables to 'unknown' type. */
+    "alwaysStrict": true,                             /* Parse in strict mode and emit "use strict" for each file. */
+    "noUnusedLocals": true,                           /* Report unused local variables. */
+    "noUnusedParameters": true,                       /* Report unused parameters in functions. */
+    "exactOptionalPropertyTypes": true,               /* Use exact types for optional properties without adding 'undefined'. */
+    "noImplicitReturns": true,                        /* Raise an error for missing return statements in functions. */
+    "noFallthroughCasesInSwitch": true,               /* Disallow fallthrough cases in switch statements. */
+    "noUncheckedIndexedAccess": true,                 /* Add 'undefined' to indexed access types. */
+    "noImplicitOverride": true,                       /* Ensure overriding members are marked with the `override` keyword. */
+    "noPropertyAccessFromIndexSignature": true,       /* Enforce using index access for indexed types. */
+
+    /* Module Resolution */
+    "moduleResolution": "node",                       /* Resolve modules using Node.js-style resolution. */
+    "baseUrl": "./",                                  /* Base directory for non-relative module imports. */
+    "paths": {                                        /* Define custom module paths (adjust as needed). */
+      "@src/*": ["src/*"]
+    },
+    "resolveJsonModule": true,                        /* Allow importing JSON files. */
+
+    /* Emit */
+    "outDir": "./build",                              /* Specify the output directory for compiled files. */
+    "removeComments": true,                           /* Remove comments from emitted files. */
+    "sourceMap": true,                                /* Generate source map files for debugging. */
+    "declaration": true,                              /* Generate `.d.ts` files for type declarations. */
+    "declarationMap": true,                           /* Generate source maps for `.d.ts` files. */
+
+    /* Completeness */
+    "skipLibCheck": true                              /* Skip type checking of all declaration files. */
+  },
+  "include": ["src/**/*"],                            /* Include all TypeScript files in the `src` directory. */
+  "exclude": ["node_modules", "build"]                /* Exclude dependencies and build artifacts. */
+}
