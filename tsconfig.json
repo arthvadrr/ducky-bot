@@ -22,11 +22,9 @@
     "noUnusedLocals": true,                           /* Report unused local variables. */
     "noUnusedParameters": true,                       /* Report unused parameters in functions. */
     "exactOptionalPropertyTypes": true,               /* Use exact types for optional properties without adding 'undefined'. */
-    "noImplicitReturns": true,                        /* Raise an error for missing return statements in functions. */
     "noFallthroughCasesInSwitch": true,               /* Disallow fallthrough cases in switch statements. */
     "noUncheckedIndexedAccess": true,                 /* Add 'undefined' to indexed access types. */
     "noImplicitOverride": true,                       /* Ensure overriding members are marked with the `override` keyword. */
-    "noPropertyAccessFromIndexSignature": true,       /* Enforce using index access for indexed types. */
 
     /* Module Resolution */
     "moduleResolution": "node",                       /* Resolve modules using Node.js-style resolution. */

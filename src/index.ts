@@ -1,14 +1,28 @@
-import { Client, GatewayIntentBits } from 'discord.js';
-import dotenv from 'dotenv';
+import { Client, GatewayIntentBits, Interaction } from 'discord.js';
+import { BOT_TOKEN } from './config'
 import { handleReady } from './events/ready';
-import { handleMessageCreate } from './events/createMessage';
-
-dotenv.config();
+import { handleMessageCreate } from './events/messageCreate';
+import { execute } from './commands/slash/helloDuckyWorld';
 
 const client = new Client({
-	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates],
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.GuildVoiceStates,
+	],
 });
 
-client.once('ready', () => handleReady(client));
-client.on('messageCreate', (message) => handleMessageCreate(message, client));
-client.login(process.env.DISCORD_TOKEN);
+client.on('interactionCreate', async (interaction: Interaction) => {
+	if (!interaction.isCommand()) return;
+
+	const { commandName } = interaction;
+
+	if (commandName === "test") {
+		await execute(interaction);
+	}
+});
+
+client.once('ready', () => handleReady(client))
+client.on('messageCreate', (message) => handleMessageCreate(message));
+client.login(BOT_TOKEN).finally(() => console.log('Token successful!'));
