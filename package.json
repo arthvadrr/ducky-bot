@@ -7,7 +7,7 @@
 	"scripts": {
 		"start": "node build/index.js",
 		"dev": "nodemon src/index.ts",
-		"register": "npx ts-node src/registerCommands.ts",
+		"register": "npx tsx src/registerCommands.ts",
 		"build": "rimraf ./build && tsc",
 		"lint": "eslint 'src/**/*.{ts,js}'",
 		"format": "prettier --write 'src/**/*.{ts,js,json,md}'"
@@ -37,6 +37,7 @@
 		"prettier": "^3.4.2",
 		"rimraf": "^6.0.1",
 		"ts-node": "^10.9.2",
+		"tsx": "^4.19.2",
 		"typescript": "^5.7.2"
 	}
 }

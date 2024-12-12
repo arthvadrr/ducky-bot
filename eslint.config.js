@@ -17,7 +17,6 @@ export default [
 			'@typescript-eslint': plugin,
 		},
 		rules: {
-			'no-console': 'warn',
 			'@/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
 			'@/semi': ['error', 'always'],
 		},
