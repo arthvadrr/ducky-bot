@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "A Discord bot built with TypeScript, focused on playing music and future extensibility.",
 	"main": "build/index.js",
+	"type": "module",
 	"scripts": {
 		"start": "node build/index.js",
 		"dev": "nodemon src/index.ts",

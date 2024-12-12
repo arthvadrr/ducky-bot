@@ -1,8 +1,8 @@
-import { Client, GatewayIntentBits, Interaction } from 'discord.js';
-import { BOT_TOKEN } from './config'
-import { handleReady } from './events/ready';
-import { handleMessageCreate } from './events/messageCreate';
-import { execute } from './commands/slash/helloDuckyWorld';
+import { Client, GatewayIntentBits, Interaction } from "discord.js";
+import { BOT_TOKEN } from "./config";
+import { handleReady } from "./events/ready";
+import { handleMessageCreate } from "./events/messageCreate";
+import { execute } from "./commands/slash/helloDuckyWorld";
 
 const client = new Client({
 	intents: [
@@ -13,7 +13,7 @@ const client = new Client({
 	],
 });
 
-client.on('interactionCreate', async (interaction: Interaction) => {
+client.on("interactionCreate", async (interaction: Interaction) => {
 	if (!interaction.isCommand()) return;
 
 	const { commandName } = interaction;
@@ -23,6 +23,6 @@ client.on('interactionCreate', async (interaction: Interaction) => {
 	}
 });
 
-client.once('ready', () => handleReady(client))
-client.on('messageCreate', (message) => handleMessageCreate(message));
-client.login(BOT_TOKEN).finally(() => console.log('Token successful!'));
+client.once("ready", () => handleReady(client));
+client.on("messageCreate", (message) => handleMessageCreate(message));
+client.login(BOT_TOKEN).finally(() => console.log("Token successful!"));
