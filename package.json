@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "node build/index.js",
-		"dev": "nodemon src/index.ts",
+		"dev": "nodemon --exec 'tsx' src/index.ts",
 		"register": "npx tsx src/registerCommands.ts",
 		"build": "rimraf ./build && tsc",
 		"lint": "eslint 'src/**/*.{ts,js}'",

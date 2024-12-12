@@ -1,5 +1,6 @@
 import { REST, Routes } from 'discord.js';
 import { command as helloDuckyWorld } from './commands/slash/helloDuckyWorld';
+import { command as joinChannel } from './commands/slash/joinChannel';
 import { APPLICATION_ID, BOT_TOKEN, GUILD_ID } from './config';
 
 /**
@@ -16,8 +17,6 @@ function validateEnvironmentVariables(): void {
 /**
  * Validates a command object for required properties.
  * Exits the process if the command is invalid.
- *
- * @param {typeof helloDuckyWorld} command - The command object to validate.
  */
 function validateCommand(command: typeof helloDuckyWorld): void {
 	if (!command.name || !command.description) {
@@ -29,13 +28,11 @@ function validateCommand(command: typeof helloDuckyWorld): void {
 /**
  * Creates an array of commands to be registered.
  * Exits the process if command validation fails.
- *
- * @returns {unknown[]} An array of commands to register.
  */
 function createCommandsArray(): unknown[] {
 	try {
 		validateCommand(helloDuckyWorld);
-		return [helloDuckyWorld.toJSON()];
+		return [helloDuckyWorld.toJSON(), joinChannel.toJSON()];
 	} catch (error) {
 		console.error('Error validating commands:', error);
 		process.exit(1);
@@ -45,8 +42,6 @@ function createCommandsArray(): unknown[] {
 /**
  * Registers application commands with the Discord API.
  * Logs progress and errors during the registration process.
- *
- * @returns {Promise<void>} A promise that resolves when registration is complete.
  */
 async function registerCommands(): Promise<void> {
 	const commands = createCommandsArray();
@@ -69,8 +64,6 @@ async function registerCommands(): Promise<void> {
 /**
  * Main entry point for the application.
  * Validates environment variables, registers commands, and handles errors.
- *
- * @returns {Promise<void>} A promise that resolves when the application completes.
  */
 async function main(): Promise<void> {
 	try {
