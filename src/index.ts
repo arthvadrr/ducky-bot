@@ -1,8 +1,9 @@
-import { Client, GatewayIntentBits, Interaction } from "discord.js";
+import { ChatInputCommandInteraction, Client, GatewayIntentBits, type Interaction } from "discord.js";
 import { BOT_TOKEN } from "./config";
 import { handleReady } from "./events/ready";
 import { handleMessageCreate } from "./events/messageCreate";
-import { execute } from "./commands/slash/helloDuckyWorld";
+import { execute as helloDucky } from "./commands/slash/helloDuckyWorld";
+import { execute as joinChannel } from "./commands/slash/joinChannel";
 
 const client = new Client({
 	intents: [
@@ -19,7 +20,11 @@ client.on("interactionCreate", async (interaction: Interaction) => {
 	const { commandName } = interaction;
 
 	if (commandName === "test") {
-		await execute(interaction);
+		await helloDucky(interaction);
+	}
+
+	if (commandName === "join") {
+		await joinChannel(interaction as ChatInputCommandInteraction);
 	}
 });
 
