@@ -1,6 +1,7 @@
 import { REST, Routes } from 'discord.js';
 import { command as helloDuckyWorld } from './commands/slash/helloDuckyWorld';
 import { command as joinChannel } from './commands/slash/joinChannel';
+import { command as leaveChannel } from './commands/slash/leaveChannel';
 import { APPLICATION_ID, BOT_TOKEN, GUILD_ID } from './config';
 
 /**
@@ -32,7 +33,7 @@ function validateCommand(command: typeof helloDuckyWorld): void {
 function createCommandsArray(): unknown[] {
 	try {
 		validateCommand(helloDuckyWorld);
-		return [helloDuckyWorld.toJSON(), joinChannel.toJSON()];
+		return [helloDuckyWorld.toJSON(), joinChannel.toJSON(), leaveChannel.toJSON()];
 	} catch (error) {
 		console.error('Error validating commands:', error);
 		process.exit(1);
